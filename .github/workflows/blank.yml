@@ -28,7 +28,7 @@ jobs:
           postman collection run "32287961-a34f8adc-ce4c-474a-a33d-03a201f79f43" -e "32287961-1046af44-936a-4934-ad53-6f1e4e80da87" --reporters json --reporter-json-export "report.json"
 
       - name: Upload Postman Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: postman-report
           path: report.json
