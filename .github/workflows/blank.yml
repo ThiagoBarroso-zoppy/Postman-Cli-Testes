@@ -18,8 +18,10 @@ jobs:
 
       - name: Run API tests with Newman
         run: |
-          newman run "https://api.getpostman.com/collections/32287961-a34f8adc-ce4c-474a-a33d-03a201f79f43?apikey=$env:POSTMAN_API_KEY" -e "https://api.getpostman.com/environments/32287961-1046af44-936a-4934-ad53-6f1e4e80da87?apikey=$env:POSTMAN_API_KEY" --reporters cli,json --reporter-json-export "report.json"
-          
+          newman run "https://api.getpostman.com/collections/32287961-a34f8adc-ce4c-474a-a33d-03a201f79f43?apikey=$env:POSTMAN_API_KEY" -e "https://api.getpostman.com/environments/32287961-1046af44-936a-4934-ad53-6f1e4e80da87?apikey=$env:POSTMAN_API_KEY"
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
         with:
